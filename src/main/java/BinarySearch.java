@@ -10,21 +10,21 @@ public class BinarySearch {
     }
 
     static int searchNum(int[] nums, int target) {
-        return binarySearchNum(nums, target, 0, nums.length-1);
+        return binarySearchNum(nums, target, 0, nums.length - 1);
     }
 
     static int binarySearchNum(int[] nums, int target, int startIdx, int endIdx) {
-        if(startIdx > endIdx) {
+        if (startIdx > endIdx) {
             return -1;
         }
 
         int halfIdx = (startIdx + endIdx) / 2;
         if (nums[halfIdx] > target) {
-            return binarySearchNum(nums, target, startIdx, halfIdx-1);
+            return binarySearchNum(nums, target, startIdx, halfIdx - 1);
         }
 
-        if(nums[halfIdx] < target) {
-            return binarySearchNum(nums, target, halfIdx+1, endIdx);
+        if (nums[halfIdx] < target) {
+            return binarySearchNum(nums, target, halfIdx + 1, endIdx);
         }
         return nums[halfIdx];
     }
