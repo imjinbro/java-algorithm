@@ -1,11 +1,16 @@
 package execute;
 
+import java.util.stream.IntStream;
+
 public class Recursive {
     public static void main(String[] args) {
         int num = 100;
         execute(num);
         executeReverse(num);
         System.out.println(factorial(5));
+
+        int[] numArr = IntStream.range(0, 100).toArray();
+        System.out.println(sum(numArr, numArr.length - 1));
     }
 
     static void execute(int num) {
@@ -34,5 +39,13 @@ public class Recursive {
         }
 
         return num * factorial(num - 1);
+    }
+
+    static int sum(int[] arr, int idx) {
+        if (idx < 0) {
+            return 0;
+        }
+
+        return arr[idx] + sum(arr, idx - 1);
     }
 }
